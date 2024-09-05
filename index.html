@@ -1,0 +1,46 @@
+<html>
+  <head>
+    <script src="https://aframe.io/releases/1.5.0/aframe.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/c-frame/aframe-extras@7.4.0/dist/aframe-extras.min.js"></script>
+    <script src="portal.js"></script>
+    <script src="maze.js"></script>
+    <script src="index.js"></script>
+  </head>
+  <body>
+    <a-scene>
+      <a-assets>
+        <img src="bedrock.jpg" id="bedrock_texture" />
+        <img src="sand.webp" id="sand_texture" />
+        <img src="grass.webp" id="grass_texture" />
+      </a-assets>
+      
+      <a-entity id="portal_template" position="0 -1000 0">
+        <a-box position="0 0.25 0" depth="0.75" width="3.5" height="0.5" color="black"></a-box>
+        <a-box position="0 4.25 0" depth="0.75" width="3.5" height="0.5" color="black"></a-box>
+        <a-box position="-1.5 2.25 0" depth="0.75" width="0.5" height="4" color="black"></a-box>
+        <a-box position="1.5 2.25 0"  depth="0.75" width="0.5" height="4" color="black"></a-box>
+
+        <a-ocean color="#aa00aa" amplitude="0.01" position="0 2 0" rotation="0 0 0" width="2.5" depth="4.5" density="5" speed="2"></a-ocean>
+        <a-ocean color="#aa00aa" amplitude="0.01" position="0 2 0" rotation="0 180 0" width="2.5" depth="4.5" density="5" speed="2"></a-ocean>
+      </a-entity>
+
+      <a-sphere radius="50" id="whiteWorld" side="double" color="#white" position="0 0 0">
+        <a-plane position="0 0 0" rotation="-90 0 0" width="40" height="40" src="#sand_texture" repeat="10 10"></a-plane>
+      </a-sphere>
+      <a-sphere radius="50" id="purpleWorld" side="double" color="#aa00aa" position="-100 0 0">
+        <a-plane position="0 0 0" rotation="-90 0 0" width="40" height="40" src="#sand_texture" repeat="10 10"></a-plane>
+      </a-sphere>
+      <a-sphere radius="50" id="redWorld" side="double" color="red" position="100 0 0">
+        <a-plane position="0 0 0" rotation="-90 0 0" width="40" height="40" src="#sand_texture" repeat="10 10"></a-plane>
+      </a-sphere>
+      <a-sphere radius="50" id="greenWorld" side="double" color="green" position="0 0 -100">
+        <a-plane position="0 0 0" rotation="-90 0 0" width="40" height="40" src="#sand_texture" repeat="10 10"></a-plane>
+      </a-sphere>
+      <a-sphere radius="50" id="blueWorld" side="double" color="blue" position="0 0 100">
+        <a-plane position="0 0 0" rotation="-90 0 0" width="40" height="40" src="#sand_texture" repeat="10 10"></a-plane>
+      </a-sphere>
+      <a-sky color="aqua"></a-sky>
+      <a-camera position="0 1.6 0"></a-camera>
+    </a-scene>
+  </body>
+</html>
